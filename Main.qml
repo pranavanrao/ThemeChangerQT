@@ -6,6 +6,11 @@ Window {
     visible: true
     title: qsTr("Hello World")
 
+    Rectangle {
+        anchors.fill: parent
+        color: darkThemeChecked ? "#2C3E50" : "#FFFFFF"
+    }
+
     NavigationBar {
         id: navBar
         width: parent.width
@@ -15,5 +20,11 @@ Window {
     ThemeRadio {
         id: themeRadio
         anchors.top: navBar.bottom
+
+        onDarkThemeChanged: {
+            darkThemeChecked = themeRadio.darkTheme
+        }
     }
+
+    property bool darkThemeChecked: false
 }

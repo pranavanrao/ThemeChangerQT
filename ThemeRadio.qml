@@ -6,17 +6,25 @@ Item {
     width: 400
     height: 150
 
+    property bool darkTheme: false
+
     Row {
         anchors.centerIn: parent
-        spacing: 10
+        spacing: 100
 
         RadioButton {
             id: lightRadioButton
-            text: "Light"
+            Text {
+                id: light
+                text: qsTr("Light")
+                color: darkTheme ? "white" : "Black"
+                anchors.left: parent.right
+            }
             checked: true
             onClicked: {
                 if (checked) {
                     darkRadioButton.checked = false;
+                    darkTheme = false;
                     console.log("Light theme selected");
                 }
             }
@@ -24,10 +32,16 @@ Item {
 
         RadioButton {
             id: darkRadioButton
-            text: "Dark"
+            Text {
+                id: dark
+                text: qsTr("Dark")
+                color: darkTheme ? "white" : "Black"
+                anchors.left: parent.right
+            }
             onClicked: {
                 if (checked) {
                     lightRadioButton.checked = false;
+                    darkTheme = true;
                     console.log("Dark theme selected");
                 }
             }
