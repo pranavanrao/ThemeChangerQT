@@ -16,6 +16,8 @@ qt_add_qml_module(appThemeChangerQT
     URI ThemeChangerQT
     VERSION 1.0
     QML_FILES Main.qml
+    QML_FILES NavigationBar.qml
+    QML_FILES ThemeRadio.qml
 )
 
 # Qt for iOS sets MACOSX_BUNDLE_GUI_IDENTIFIER automatically since Qt 6.1.
